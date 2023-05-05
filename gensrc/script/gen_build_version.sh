@@ -30,7 +30,7 @@ set -eo pipefail
 build_version_prefix="select-enterprise"
 build_version_major=1
 build_version_minor=2
-build_version_patch=0
+build_version_patch=4
 build_version_rc_version="dev"
 
 build_version="${build_version_prefix}-${build_version_major}.${build_version_minor}.${build_version_patch}-${build_version_rc_version}"
@@ -63,7 +63,7 @@ if [[ -d '.git' ]]; then
     short_revision="$(git log -1 --pretty=format:"%h")"
     url="git://${hostname}"
 else
-    revision="Unknown"
+    revision="tag"
     short_revision="${revision}"
     url="file://${hostname}"
 fi
