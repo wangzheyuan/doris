@@ -244,6 +244,8 @@ public class SessionVariable implements Serializable, Writable {
 
     public static final String ENABLE_ELIMINATE_SORT_NODE = "enable_eliminate_sort_node";
 
+    public static final String ENABLE_DEFAULT_ORDER = "enable_default_order";
+
     public static final String INTERNAL_SESSION = "internal_session";
 
     public static final String PARTITIONED_HASH_JOIN_ROWS_THRESHOLD = "partitioned_hash_join_rows_threshold";
@@ -483,6 +485,9 @@ public class SessionVariable implements Serializable, Writable {
 
     @VariableMgr.VarAttr(name = ENABLE_PARALLEL_OUTFILE)
     public boolean enableParallelOutfile = false;
+
+    @VariableMgr.VarAttr(name = ENABLE_DEFAULT_ORDER)
+    public boolean enableDefaultOrder = false;
 
     @VariableMgr.VarAttr(name = CPU_RESOURCE_LIMIT)
     public int cpuResourceLimit = -1;
@@ -1160,6 +1165,15 @@ public class SessionVariable implements Serializable, Writable {
     public boolean getEnableCboStatistics() {
         return enableCboStatistics;
     }
+
+    public void setEnableDefaultOrder(boolean enableDefaultOrder) {
+        this.enableDefaultOrder = enableDefaultOrder;
+    }
+
+    public boolean isEnableDefaultOrder() {
+        return enableDefaultOrder;
+    }
+
 
     /**
      * getInsertVisibleTimeoutMs.
